@@ -725,7 +725,7 @@ const choosePaymentMethodForHP = async(req, res) => {
     }
   };
 
-  const updated = await patientSchema.updateOne({Username: PatientUsername, "SubscribedHP.Type": type}, updatedHP);
+  const updated = await patientSchema.findOneAndUpdate({Username: PatientUsername, "SubscribedHP.Type": type}, updatedHP);
   res.status(200).send(updated);
   
 } catch (error) {
